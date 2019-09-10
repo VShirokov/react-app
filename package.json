@@ -20,11 +20,13 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "^9.0.1",
+    "bem-cn-fast": "^1.0.2",
     "camelcase": "^5.2.0",
-    "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "clean-webpack-plugin": "^3.0.0",
     "cn-decorator": "^2.1.0",
     "css-loader": "^3.2.0",
+    "decamelize": "^3.2.0",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
     "eslint": "^6.2.1",
@@ -144,5 +146,9 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-decorators": "^7.2.0",
+    "babel-polyfill": "^6.26.0"
   }
 }

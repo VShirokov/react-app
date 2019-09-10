@@ -1,15 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const devMode = process.env.NODE_ENV !== 'production';
+// const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: "development",
     entry: {
-       js: "./src/index.js",
+        js: "./src/index.js",
     },
     output: {
         path: path.resolve(__dirname, '/dist'),
@@ -18,12 +18,13 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: path.join(__dirname, "/dist"),
+        contentBase: path.join(__dirname, "/src"),
         compress: true,
         port: 9000,
         watchContentBase: true,
         progress: true,
         historyApiFallback: true,
+        hot: true,
     },
     module: {
         rules: [
@@ -32,9 +33,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react']
-                    }
                 },
             },
             {
@@ -61,6 +59,17 @@ module.exports = {
                 ]
             },
             {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    }
+                ]
+            },
+            {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ["file-loader"]
             }
@@ -69,6 +78,14 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html"
-        })
-    ]
-}
+        }),
+        new CaseSensitivePathsPlugin(),
+    ],
+    resolve: {
+        extensions: ['.js', 'json', '.jsx'],
+        modules: [
+            path.resolve(__dirname, 'src'),
+            'node_modules'
+        ]
+    }
+};

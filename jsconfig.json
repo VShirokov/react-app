@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "experimentalDecorators": true,
+        "jsx": "react"
+    }
+}
