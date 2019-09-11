@@ -8,11 +8,11 @@ class Header extends React.Component {
 
     render(cn) {
         return (
-            <header className={cn('header')}>
+            <header className={cn('')}>
                 <nav className={cn('navbar')}>
                     <ul className={cn('nav-list')}>
-                        <li className={cn('nav-item')}><Link to="/">App</Link></li>
-                        <li className={cn('nav-item')}><Link to="/todo">Todo</Link></li>
+                        <li className={cn('nav-item')}><Link to="/" activeOnlyWhenExact={true} className={cn('nav-link')}>App</Link></li>
+                        <li className={cn('nav-item')}><Link to="/todo" activeOnlyWhenExact={true} className={cn('nav-link')}>Todo</Link></li>
                     </ul>
                 </nav>
             </header>

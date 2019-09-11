@@ -8,7 +8,7 @@ class AppPage extends React.Component {
 
     render(cn) {
         return (
-            <div className={cn('app')}>
+            <div className={cn('')}>
                 <img src={logo} className={cn('logo')} alt="logo" />
                 <p>
                     Edit <code>src/App.js</code> and save to reload.

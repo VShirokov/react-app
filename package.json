@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@svgr/webpack": "4.3.2",
@@ -81,7 +82,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "test": "node scripts/test.js",
-    "start-dev": "webpack-dev-server --mode development --open --hot --watch",
+    "dev": "webpack-dev-server --mode development --open --hot --watch",
     "build": "webpack --mode production"
   },
   "eslintConfig": {

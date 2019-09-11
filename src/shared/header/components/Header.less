@@ -1,5 +1,43 @@
+@import '~styles/style.less';
 @b: e('.header');
 
 @{b} {
     display: flex;
+    background-color: @darkBlue;
+    color: @murkyGreen;
+    padding: 8px 32px 0;
+    &__navbar {
+        max-width: 1280px;
+    }
+    &__nav-list {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    &__nav-item {
+        display: flex;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        width: 66px;
+        border-radius: 20px;
+        border: 2px solid @murkyGreen;
+        border-bottom: none;
+        cursor: pointer;
+        transition: color .4s;
+        transition: background-color .4s;
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+        &:hover {
+            background-color: @murkyGreen;
+            @{b}__nav-link {
+                color: @darkBlue;
+                text-decoration: none;
+            }
+        }
+    }
+    &__nav-link {
+        color: @murkyGreen;
+    }
 }
