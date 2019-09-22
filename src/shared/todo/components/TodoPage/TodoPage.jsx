@@ -2,20 +2,22 @@ import React from 'react';
 import cn from 'cn-decorator';
 import './TodoPage.less';
 import TodoTable from 'shared/todo/components/TodoTable/TodoTable.jsx';
+//import TodoPageContext from 'shared/todo/TodoPageContext.js';
 import { data } from 'shared/todo/constants/data.js';
 
-@cn('todo')
+@cn('todo-page')
 class TodoPage extends React.Component {
-
+    constructor() {
+        super();
+        this.state = { data };
+    }
     render(cn) {
-        const { boardName } = data;
-
         return (
             <div className={cn('')}>
                 <div className={cn('title')}>
-                    <h1>Таблица дел</h1>
+                    <h1>Таблица задач</h1>
                 </div>
-                <TodoTable name={boardName} />
+                <TodoTable {...data} />
             </div>
         );
     };

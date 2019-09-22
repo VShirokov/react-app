@@ -15,10 +15,6 @@ class Routes extends React.Component {
                     <Switch>
                         <Route exact path="/" component={App} />
                         <Route exact path="/todo" component={Todo} />
-                       {/* <Route path="/icons" component={Icons} />
-                        <Route path="/forms" component={Forms} />
-                        <Route path="/other" component={Other} />
-                        <Route strict path="/dashboard" component={Dashboard} />*/}
                     </Switch>
             </div>
         );

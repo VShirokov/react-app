@@ -1,0 +1,15 @@
+@import '~styles/style.less';
+@b: e('.todo-column');
+
+@{b} {
+    display: flex;
+    flex-flow: column nowrap;
+    border-right: 1px solid #020217;
+    height: 100vh;
+    padding-right: 16px;
+    min-width: 200px;
+    //margin-right: 20px;
+    &:not(:last-child) {
+        margin-right: 40px;
+    }
+}

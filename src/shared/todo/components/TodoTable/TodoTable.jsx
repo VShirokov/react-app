@@ -1,21 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'cn-decorator';
+import Column from 'shared/todo/components/TodoColumn/TodoColumn.jsx';
+//import TodoPageContext from 'shared/todo/TodoPageContext.js';
+//import { data } from 'shared/todo/constants/data.js';
 import './TodoTable.less';
 
 @cn('todo-table')
 class TodoTable extends React.Component {
     static propTypes = {
-        name: PropTypes.string,
+        boardName: PropTypes.string,
+        week: PropTypes.array,
     };
 
+    renderContent(cn) {
+        const { week } = this.props;
+
+        return week.map(
+            (item, index) => <Column key={index+item} title={item} className={cn('column')} />
+        );
+    }
+
     render(cn) {
-        const { name } = this.props;
+        const { boardName, week } = this.props;
 
         return (
             <div className={cn('')}>
                 <div className={cn('title')}>
-                    <h2>{name}</h2>
+                    <h2>{boardName}</h2>
+                </div>
+                <div className={cn('content')}>
+                    {week && this.renderContent(cn)}
                 </div>
             </div>
         );

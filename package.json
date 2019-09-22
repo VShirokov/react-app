@@ -82,7 +82,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "test": "node scripts/test.js",
-    "dev": "webpack-dev-server --mode development --open --hot --watch",
+    "dev": "webpack-dev-server --mode development --hot --watch",
     "build": "webpack --mode production"
   },
   "eslintConfig": {
