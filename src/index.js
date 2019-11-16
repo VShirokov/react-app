@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './styles/index.less';
 import Routes from './Routes.jsx';
+//import MainPage from 'shared/app/components/AppPage/AppPage.jsx';
+//import Home from 'shared/app/utils/hello.js';
 //import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -17,3 +19,6 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 //serviceWorker.unregister();
+        {/*// <BrowserRouter>
+             <Routes />
+        </BrowserRouter>, */}
