@@ -29,6 +29,37 @@
         top: 20px;
         left: 20px;
     }
+    
+    &__button-block {
+        position: absolute;
+        top: 50%;
+        left: 100px;
+    }
+
+    &__user {
+        display: flex;
+        width: 200px;
+        height: 32px;
+        text-decoration: none;
+        color: black;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+        }
+        &:not(:first-child) {
+            margin-top: 20px;
+        }
+    }
+    &__user_create-user {
+        background-color: blueviolet;
+    }
+
+    &__user_read-user {
+        background-color: greenyellow;
+    }
+    
 
     @keyframes app-logo-spin {
         from {

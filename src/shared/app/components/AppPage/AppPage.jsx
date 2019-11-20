@@ -72,10 +72,30 @@ class AppPage extends React.Component {
 
     getHello = () => {
         axios.get('http://localhost:3636/api/hello')
-            .then((res)=>{ console.log(res) })
-            .catch((e)=>{ console.log('error - ' + e) });
+            .then((res)=>{ console.log(res); })
+            .catch((e)=>{ console.log('error - ' + e); });
     }
 
+    handleCreateUser = () => {
+        axios.post(
+            'http://localhost:3636/api/user/create',
+            {
+                username: 'Fred',
+                email: 'Flintstone',
+                password: '1234'
+            }
+        )
+        .then((res)=>{ console.log(res); })
+        .catch((e)=>{ console.log('error - ' + e); })
+        .finally(console.log(`we try to create user`));
+    }
+
+    handleGetUser = () => {
+        axios.get('http://localhost:3636/api/user/read')
+        .then((res)=>{ console.log(res); })
+        .catch((e)=>{ console.log('error - ' + e); });
+    }
+    
     render(cn) {
         return (
             <div className={cn('')}>
@@ -91,7 +111,12 @@ class AppPage extends React.Component {
                 >
                     Learn React
                 </a>
-                {this.getHello()}
+                <div className={cn('button-block')}>
+                    <a className={cn('user', { 'create-user': true })} onClick={this.handleCreateUser}>Create user</a>
+                    <a className={cn('user', { 'read-user': true })} onClick={this.handleGetUser}>Read user</a>
+                </div>
+
+                {/* {this.getHello()} */}
                 {/* <h2 onClick={this.addUserHandle}>Data</h2>
                 <h2 onClick={this.getUserHandle}>GetData</h2> */}
                 {/* <Hello /> */}
