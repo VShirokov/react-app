@@ -29,11 +29,17 @@
         top: 20px;
         left: 20px;
     }
-    
+
+    &__api-btn {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
     &__button-block {
-        position: absolute;
-        top: 50%;
-        left: 100px;
+        display: inline-block;
+        &:not(:first-child) {
+            margin-left: 50px;
+        }
     }
 
     &__user {
@@ -53,11 +59,19 @@
         }
     }
     &__user_create-user {
-        background-color: blueviolet;
+        background-color: green;
     }
 
     &__user_read-user {
-        background-color: greenyellow;
+        background-color: blue;
+    }
+
+    &__user_update-user {
+        background-color: yellow;
+    }
+
+    &__user_delete-user {
+        background-color: red;
     }
     
 

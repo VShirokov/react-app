@@ -2,8 +2,18 @@ import React from 'react';
 import cn from 'cn-decorator';
 import logo from 'shared/app/i/logo.svg';
 import './AppPage.less';
-import Hello from 'shared/app/utils/hello.js';
-import axios from 'axios';
+import {
+    handleCreateUser,
+    handleGetUser,
+    handleUpdateUser,
+    handleDeleteUser,
+} from 'shared/app/utils/userApi.js';
+import {
+    handleCreatePost,
+    handleGetPost,
+    handleUpdatePost,
+    handleDeletePost,
+} from 'shared/app/utils/postApi.js';
 
 @cn('app')
 class AppPage extends React.Component {
@@ -23,80 +33,8 @@ class AppPage extends React.Component {
         //this.addUserHandle();
     }
 
-    addUserHandle() {
-        // axios.get(`http://localhost:3636/api/hello`, {
-        // })
-        //   .then(res => setState(res.data))
-        //   .then(res => console.log(res))
-        //   .catch(err => console.log(`error - ${err}`))
-        //   .finally(() => console.log("axios in hello.js"));
-
-        // axios.post('http://localhost:3636/api/posts/userprofiletodb', {
-        //     email: 'test@test.test',
-        //     nickname: 'Fred',
-        //   })
-        //   .then(function (response) {
-        //     console.log(response);
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   });
-        axios.post('/api/posts/userprofiletodb', profile )
-        .then(axios.get('/api/get/userprofilefromdb',
-        		{ params: { email: profile.profile.email } })
-          .then(res => context.handleAddDBProfile(res.data)) )
-        .then(history.replace('/') )
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        });
-    }
-    getUserHandle() {
-        // axios.get(`http://localhost:3636/api/hello`, {
-        // })
-        //   .then(res => setState(res.data))
-        //   .then(res => console.log(res))
-        //   .catch(err => console.log(`error - ${err}`))
-        //   .finally(() => console.log("axios in hello.js"));
-        axios.post('http://localhost:3636/api/posts/userprofiletodb', {
-            email: 'test@test.test',
-            nickname: 'Fred',
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
-
-    getHello = () => {
-        axios.get('http://localhost:3636/api/hello')
-            .then((res)=>{ console.log(res); })
-            .catch((e)=>{ console.log('error - ' + e); });
-    }
-
-    handleCreateUser = () => {
-        axios.post(
-            'http://localhost:3636/api/user/create',
-            {
-                username: 'Fred',
-                email: 'Flintstone',
-                password: '1234'
-            }
-        )
-        .then((res)=>{ console.log(res); })
-        .catch((e)=>{ console.log('error - ' + e); })
-        .finally(console.log(`we try to create user`));
-    }
-
-    handleGetUser = () => {
-        axios.get('http://localhost:3636/api/user/read')
-        .then((res)=>{ console.log(res); })
-        .catch((e)=>{ console.log('error - ' + e); });
-    }
-    
     render(cn) {
+
         return (
             <div className={cn('')}>
                 <img src={logo} className={cn('logo')} alt="logo" />
@@ -111,11 +49,20 @@ class AppPage extends React.Component {
                 >
                     Learn React
                 </a>
-                <div className={cn('button-block')}>
-                    <a className={cn('user', { 'create-user': true })} onClick={this.handleCreateUser}>Create user</a>
-                    <a className={cn('user', { 'read-user': true })} onClick={this.handleGetUser}>Read user</a>
+                <div className={cn('api-btn')}>
+                    <div className={cn('button-block')}>
+                        <a className={cn('user', { 'create-user': true })} onClick={handleCreateUser}>Create user</a>
+                        <a className={cn('user', { 'read-user': true })} onClick={handleGetUser}>Read user</a>
+                        <a className={cn('user', { 'update-user': true })} onClick={handleUpdateUser}>Update user</a>
+                        <a className={cn('user', { 'delete-user': true })} onClick={handleDeleteUser}>Delete user</a>
+                    </div>
+                    <div className={cn('button-block')}>
+                        <a className={cn('user', { 'create-user': true })} onClick={handleCreatePost}>Create post</a>
+                        <a className={cn('user', { 'read-user': true })} onClick={handleGetPost}>Read posts</a>
+                        <a className={cn('user', { 'update-user': true })} onClick={handleUpdatePost}>Update posts</a>
+                        <a className={cn('user', { 'delete-user': true })} onClick={handleDeletePost}>Delete posts</a>
+                    </div>
                 </div>
-
                 {/* {this.getHello()} */}
                 {/* <h2 onClick={this.addUserHandle}>Data</h2>
                 <h2 onClick={this.getUserHandle}>GetData</h2> */}
