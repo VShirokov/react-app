@@ -1,21 +1,23 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import cn from 'cn-decorator';
-//import './TodoColumns.less';
+//import './TodoItem.less';
 
 @cn('todo-item')
 class TodoItem extends React.Component {
     static propTypes = {
-        //pageProps: PropTypes.object,
+        text: PropTypes.string,
     };
 
     render(cn) {
-        //const { } = this.props;
+        const { text } = this.props;
 
         //console.log(this.props);
 
         return (
-            <div className={cn('')} />
+            <div className={cn('')}>
+                {text}
+            </div>
         );
     };
 }
